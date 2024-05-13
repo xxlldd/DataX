@@ -28,6 +28,7 @@ import com.alibaba.datax.core.util.container.CoreConstant;
 import com.alibaba.datax.core.util.container.LoadUtil;
 import com.alibaba.datax.dataxservice.face.domain.enums.State;
 import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONWriter;
 import org.apache.commons.lang3.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -92,6 +93,7 @@ public class TaskGroupContainer extends AbstractContainer {
     @Override
     public void start() {
         try {
+            JSON.config(JSONWriter.Feature.LargeObject,true);
             /**
              * 状态check时间间隔，较短，可以把任务及时分发到对应channel中
              */

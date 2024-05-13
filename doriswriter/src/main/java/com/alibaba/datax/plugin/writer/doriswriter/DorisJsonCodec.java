@@ -29,7 +29,7 @@ public class DorisJsonCodec extends DorisBaseCodec implements DorisCodec {
             rowMap.put(fieldName, convertionField(row.getColumn(idx)));
             idx++;
         }
-        JSON.config(JSONWriter.Feature.LargeObject,true);
+
         return JSON.toJSONString(rowMap);
     }
 }
