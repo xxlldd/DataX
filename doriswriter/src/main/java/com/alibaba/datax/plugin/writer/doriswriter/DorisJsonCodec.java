@@ -2,6 +2,7 @@ package com.alibaba.datax.plugin.writer.doriswriter;
 
 import com.alibaba.datax.common.element.Record;
 import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONWriter;
 
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +29,7 @@ public class DorisJsonCodec extends DorisBaseCodec implements DorisCodec {
             rowMap.put(fieldName, convertionField(row.getColumn(idx)));
             idx++;
         }
+        JSON.config(JSONWriter.Feature.LargeObject,true);
         return JSON.toJSONString(rowMap);
     }
 }
